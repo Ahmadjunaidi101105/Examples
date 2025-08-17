@@ -22,62 +22,38 @@
 
             <div class="flex flex-1 items-center justify-end md:justify-between">
             <nav aria-label="Global" class="hidden md:block">
-                <ul class="flex items-center gap-6 text-sm">
+                <ul class="flex items-center gap-6 text-xl">
                     <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        About
-                        </a>
+                        <x-nav-link 
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="/">
+                            Home
+                        </x-nav-link>
                     </li>
-
                     <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        Careers
-                        </a>
+                        <x-nav-link 
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="/about">
+                            About
+                        </x-nav-link>
                     </li>
-
                     <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        History
-                        </a>
+                        <x-nav-link 
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="/contact">
+                            Contact
+                        </x-nav-link>
                     </li>
-
                     <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        Projects
-                        </a>
-                    </li>
-
-                    <li>
-                        <a
-                        class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                        href="#"
-                        >
-                        Blog
-                        </a>
+                        <x-nav-link 
+                            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                            href="/siswa">
+                            Daftar Siswa
+                        </x-nav-link>
                     </li>
                 </ul>
             </nav>
+
 
             <div class="flex items-center gap-4">
                 <div class="sm:flex sm:gap-4">
@@ -116,11 +92,9 @@
         </div>
         </header>
      <nav>
-    
-
-    <main>
+    <main class=" py-10 px-10 md:px-25">
         {{ $slot  }}
     </main>
-    <footer>ini footer dari page <span>{{ $footer }}</span></footer>
+    <footer class=" py-10 px-10 md:px-25" >ini footer dari page <span>{{ $footer }}</span></footer>
 </body>
 </html>
