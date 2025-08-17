@@ -1,27 +1,24 @@
 <?php
 
-use App\Models\Siswa;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
+// Home
 Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/about',  function () {
+})->name('home');
+
+// About
+Route::get('/about', function () {
     $nama = 'Ahmad Junaidi';
     return view('about', ['data' => $nama]);
-});
+})->name('about');
 
-Route::get('/contact',  function () {
+// Contact
+Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
-Route::get('/siswa',  function () {
-    $data = Siswa::orderBy('nilai','desc', 'asc')->get();
-    return view('siswa.index', ['data' => $data ]);
-});
-
-Route::get('/siswa/{id}',  function ($id) {
-    $siswa = Siswa::findOrFail($id);
-    return view('siswa.show', ['siswa'=> $siswa ]);
-    
-});
+// Siswa (pakai controller)
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/{id}', [SiswaController::class, 'show'])->name('siswa.show');

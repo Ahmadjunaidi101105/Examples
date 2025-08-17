@@ -1,6 +1,5 @@
 <x-layout>
-    <h1 class="text-xl mb-5 font-bold">Daftar Siswa</h1>
-
+   <h1 class="text-xl mb-5 font-bold text-teal-100">Daftar Siswa</h1>
     <div class="overflow-x-auto">
         <table class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700">
             <thead class="ltr:text-left rtl:text-right">
@@ -28,8 +27,32 @@
                         </td>
                     </tr>
                 @endforeach
+            </tbody> <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                @foreach ($data as $item)
+                    <tr class="*:text-gray-900 *:first:sticky *:first:left-0 
+                               *:first:bg-white *:first:font-medium 
+                               dark:*:text-white dark:*:first:bg-gray-900">
+                        <td class="px-3 py-2 whitespace-nowrap">{{ $item->nama }}</td>
+                        <td class="px-3 py-2 whitespace-nowrap">{{ $item->tanggal_lahir }}</td>
+                        <td class="px-3 py-2 whitespace-nowrap">{{ $item->jurusan }}</td>
+                        <td class="px-3 py-2 whitespace-nowrap">{{ $item->nilai }}</td>
+                        <td class="px-3 py-2 whitespace-nowrap">
+                            {{ $item->mentor->nama ?? '-' }}
+                        </td>
+                        <td class="px-3 py-2 whitespace-nowrap">
+                            <a href="{{ route('siswa.show', $item->id) }}" 
+                               class="text-teal-500 font-bold hover:opacity-50">
+                                View Details
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
+    </div>
+    <div class ="py-10">
+
+        {{ $data->appends (request()->query())->links() }}
     </div>
 
     <x-slot:footer>
